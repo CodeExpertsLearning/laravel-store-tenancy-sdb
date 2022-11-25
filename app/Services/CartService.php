@@ -41,7 +41,7 @@ class CartService
 
     public function clear()
     {
-        $this->session->forget(self::CART_KEY);
+        $this->session->forget([self::CART_KEY, 'shipping_value']);
     }
     
     public function itemExistsInCart($item)

@@ -19,4 +19,14 @@ class Store extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    public function shippings()
+    {
+        return $this->hasMany(ShippingOption::class);
+    }
+
+    public function customers()
+    {
+        return $this->hasMany(User::class);
+    }
 }

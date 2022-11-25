@@ -633,6 +633,10 @@ select {
   margin-top: 5rem;
   margin-bottom: 5rem;
 }
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -664,6 +668,12 @@ select {
 .mt-10 {
   margin-top: 2.5rem;
 }
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -675,9 +685,6 @@ select {
 }
 .ml-4 {
   margin-left: 1rem;
-}
-.mt-2 {
-  margin-top: 0.5rem;
 }
 .mr-8 {
   margin-right: 2rem;
@@ -693,9 +700,6 @@ select {
 }
 .mt-6 {
   margin-top: 1.5rem;
-}
-.mb-10 {
-  margin-bottom: 2.5rem;
 }
 .ml-10 {
   margin-left: 2.5rem;
@@ -1024,6 +1028,10 @@ select {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
 }
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
@@ -1174,6 +1182,10 @@ select {
 .text-gray-400 {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+.text-blue-600 {
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 .text-indigo-700 {
   --tw-text-opacity: 1;

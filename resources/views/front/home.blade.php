@@ -19,6 +19,10 @@
                 
                 @auth
                     <span class="mr-4">Olá, {{auth()->user()->name}}</span>
+                    <a 
+                    href="{{route('my.orders', request('subdomain'))}}"
+                    class="mr-4 hover:underline"
+                    >Meus Pedidos</a>
                     <a href="{{route('logout')}}"> Logout</a>
                 @endauth
             </div>

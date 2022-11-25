@@ -4,20 +4,24 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Store;
+use App\Models\{Store, ShippingOption};
 use App\Services\CartService;
 
 class CartController extends Controller
 {
-    public function __construct(private CartService $cartService, private Store $store)
+    public function __construct(
+                        private CartService $cartService, 
+                        private Store $store,
+                        private ShippingOption $shippingOption)
     {
     }
 
     public function index()
     {
         $cart = $this->cartService->all();
+        $shippings = $this->shippingOption->all();
 
-        return view('front.cart', compact('cart'));
+        return view('front.cart', compact('cart', 'shippings'));
     }
 
     public function add($subdomain, $product)
@@ -41,5 +45,12 @@ class CartController extends Controller
     {
         $this->cartService->clear();
         return redirect()->route('front.store', $subdomain);
+    }
+
+    public function shipping(Request $request)
+    {
+        session()->put('shipping_value', $request->shipping_value);
+
+        return response()->json([], 204);
     }
 }

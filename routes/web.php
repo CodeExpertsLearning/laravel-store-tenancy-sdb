@@ -23,6 +23,7 @@ Route::domain('{subdomain}.localhost')->group(function(){
         Route::get('add/{product}', [\App\Http\Controllers\Front\CartController::class, 'add'])->name('add');
         Route::get('remove/{product}', [\App\Http\Controllers\Front\CartController::class, 'remove'])->name('remove');
         Route::get('cancel', [\App\Http\Controllers\Front\CartController::class, 'cancel'])->name('cancel');
+        Route::post('shipping', [\App\Http\Controllers\Front\CartController::class, 'shipping'])->name('store-shipping');
     });
 
     Route::prefix('checkout')->middleware('auth.store')->name('checkout.')->group(function(){
@@ -36,6 +37,13 @@ Route::domain('{subdomain}.localhost')->group(function(){
         Route::post('/sign-in', [\App\Http\Controllers\Front\AuthenticateController::class, 'signIn'])->name('in');
         Route::post('/sign-up', [\App\Http\Controllers\Front\AuthenticateController::class, 'signUp'])->name('up');
     });
+
+    
+    Route::get('/my-orders', [\App\Http\Controllers\Front\MyOrdersController::class, 'index'])
+        ->name('my.orders')
+        ->middleware('auth')
+        ;
+
     Route::get('logout', [\App\Http\Controllers\Front\AuthenticateController::class, 'logout'])->name('up');
 });
 
@@ -55,6 +63,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
     Route::resource('products', \App\Http\Controllers\Admin\ProductController::class);
     Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
+    Route::resource('shippings', \App\Http\Controllers\Admin\ShippingOptionsController::class);
 
 });
 
